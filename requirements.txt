@@ -1,0 +1,7 @@
+# Shared dependencies across services
+fastapi
+uvicorn
+requests
+openai
+psycopg2-binary
+pinecone-client

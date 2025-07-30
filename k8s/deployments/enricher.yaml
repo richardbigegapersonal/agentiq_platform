@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: enricher
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: enricher
+  template:
+    metadata:
+      labels:
+        app: enricher
+    spec:
+      containers:
+        - name: enricher
+          image: your-dockerhub-username/enricher:latest
+          envFrom:
+            - configMapRef:
+                name: leadiq-env
+            - secretRef:
+                name: leadiq-secrets
+          ports:
+            - containerPort: 8000

@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vector-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vector-service
+  template:
+    metadata:
+      labels:
+        app: vector-service
+    spec:
+      containers:
+        - name: vector-service
+          image: your-dockerhub-username/vector-service:latest
+          envFrom:
+            - configMapRef:
+                name: leadiq-env
+            - secretRef:
+                name: leadiq-secrets
+          ports:
+            - containerPort: 8000

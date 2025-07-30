@@ -1,0 +1,1 @@
+# AgentIQ Frontend — Auth, Lead Purchase, Dashboard UI

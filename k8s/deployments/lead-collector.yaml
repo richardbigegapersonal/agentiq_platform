@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lead-collector
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lead-collector
+  template:
+    metadata:
+      labels:
+        app: lead-collector
+    spec:
+      containers:
+        - name: lead-collector
+          image: your-dockerhub-username/lead-collector:latest
+          envFrom:
+            - configMapRef:
+                name: leadiq-env
+            - secretRef:
+                name: leadiq-secrets
+          ports:
+            - containerPort: 8000
