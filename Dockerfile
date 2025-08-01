@@ -34,7 +34,7 @@ RUN pip install --upgrade pip && \
 # -------------------------------
 # Frontend: Next.js Build
 # -------------------------------
-WORKDIR /app/agent_fullstack/frontend
+WORKDIR /app/agentiq_fullstack/frontend
 
 # Install Node.js dependencies and build Next.js
 RUN npm install && npm run build
