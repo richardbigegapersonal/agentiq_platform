@@ -57,47 +57,38 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-4">Choose a Plan That Fits</h2>
           <p className="text-gray-600 mb-12">Start free, scale as you grow. No contracts or surprises.</p>
           <div className="grid md:grid-cols-3 gap-10">
-            <PricingPlan
-              title="Starter"
-              price="$0"
-              features={["100 AI credits/month", "Basic lead discovery", "Limited enrichment"]}
-              cta="Start Free"
-            />
-            <PricingPlan
-              title="Pro"
-              price="$99/mo"
-              features={["Unlimited discovery", "AI outreach", "CRM integration"]}
-              cta="Upgrade to Pro"
-              highlight
-            />
-            <PricingPlan
-              title="Enterprise"
-              price="Custom"
-              features={["Dedicated agents", "Custom integrations", "Onboarding support"]}
-              cta="Contact Sales"
-            />
+            <PricingPlan title="Starter" price="$0" features={["100 AI credits/month", "Basic lead discovery", "Limited enrichment"]} cta="Start Free" />
+            <PricingPlan title="Pro" price="$99/mo" features={["Unlimited discovery", "AI outreach", "CRM integration"]} cta="Upgrade to Pro" highlight />
+            <PricingPlan title="Enterprise" price="Custom" features={["Dedicated agents", "Custom integrations", "Onboarding support"]} cta="Contact Sales" />
           </div>
+        </div>
+      </section>
+
+      <section className="bg-indigo-50 py-20 px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-bold mb-4">Success Stories from Real Users</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+            <Testimonial name="Carla T." company="RevBoost" quote="AgentIQ helped us book 4x more demos in our first month using it. The AI outreach alone is worth it." />
+            <Testimonial name="James L." company="TechScale" quote="We closed two enterprise clients after the platform helped surface enriched contacts we were blind to before." />
+            <Testimonial name="Ravi M." company="OutboundX" quote="This is now our core engine. The leads are warmer and our reps are more confident." />
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-white py-20 px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-2xl font-semibold mb-4">Book a Personalized Demo</h2>
+          <iframe src="https://calendly.com/your-company/demo" width="100%" height="600" frameBorder="0"></iframe>
         </div>
       </section>
 
       <section className="bg-blue-900 text-white py-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-2xl font-semibold mb-4">Ready to Transform Your Sales Workflow?</h2>
-          <p className="mb-6">Join 100+ teams using AgentIQ to sell smarter.</p>
-          <SignedOut>
-            <SignInButton>
-              <button className="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold">
-                Sign Up Free
-              </button>
-            </SignInButton>
-          </SignedOut>
-          <SignedIn>
-            <Link href="/dashboard">
-              <button className="bg-white text-blue-900 px-6 py-3 rounded-lg font-semibold">
-                Go to Dashboard
-              </button>
-            </Link>
-          </SignedIn>
+          <h2 className="text-2xl font-semibold mb-4">Get Free Tips & Lead Intelligence</h2>
+          <form className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
+            <input type="email" placeholder="Your email" className="px-4 py-2 rounded-md text-black" required />
+            <button className="bg-white text-blue-900 px-6 py-2 rounded-md font-semibold hover:bg-gray-200">Subscribe</button>
+          </form>
         </div>
       </section>
 
@@ -105,9 +96,11 @@ export default function Home() {
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-4">Resources & Legal</h2>
           <p className="text-gray-600 mb-8">Transparency builds trust. Review our policies and learn more about how we work.</p>
-          <div className="flex justify-center gap-12 text-sm text-blue-700">
+          <div className="flex justify-center gap-12 text-sm text-blue-700 flex-wrap">
             <Link href="/buy-leads">Buy Leads</Link>
             <Link href="/blog">Blog</Link>
+            <Link href="/blog/ai-outbound-strategy">AI Outbound Strategy</Link>
+            <Link href="/blog/best-crm-integrations">CRM Integrations</Link>
             <Link href="/privacy">Privacy Policy</Link>
             <Link href="/terms">Terms of Service</Link>
           </div>
@@ -146,6 +139,15 @@ function PricingPlan({ title, price, features, cta, highlight }) {
       <button className="w-full bg-indigo-600 text-white py-2 rounded-lg font-semibold hover:bg-indigo-700 transition">
         {cta}
       </button>
+    </div>
+  );
+}
+
+function Testimonial({ name, company, quote }) {
+  return (
+    <div className="bg-white p-6 rounded-xl shadow-md text-left">
+      <p className="text-gray-700 italic mb-4">“{quote}”</p>
+      <p className="text-sm font-semibold">{name}, {company}</p>
     </div>
   );
 }
