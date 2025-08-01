@@ -3,7 +3,11 @@
 import { useEffect, useState } from "react";
 import { SignedIn, SignedOut, useUser, UserButton, useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/router";
+
 import Link from "next/link";
+
+// Disable static site generation
+export const dynamic = "force-dynamic";
 
 export default function Dashboard() {
   const { user } = useUser();
