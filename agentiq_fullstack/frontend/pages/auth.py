@@ -1,4 +1,4 @@
-# auth.py
+// auth.py
 from fastapi import Request, HTTPException
 from jose import jwt
 import os
