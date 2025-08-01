@@ -4,6 +4,16 @@
 FROM python:3.11-slim
 
 # -------------------------------
+# Build Args for Clerk Keys
+# -------------------------------
+ARG NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+ARG CLERK_SECRET_KEY
+
+# Expose as Environment Variables
+ENV NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}
+ENV CLERK_SECRET_KEY=${CLERK_SECRET_KEY}
+
+# -------------------------------
 # Install System Dependencies
 # -------------------------------
 RUN apt-get update && \
@@ -36,7 +46,11 @@ RUN pip install --upgrade pip && \
 # -------------------------------
 WORKDIR /app/agentiq_fullstack/frontend
 
-# Install Node.js dependencies and build Next.js
+# Inject Clerk keys into Next.js at build time
+RUN echo "NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=$NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY" >> .env && \
+    echo "CLERK_SECRET_KEY=$CLERK_SECRET_KEY" >> .env
+
+# Install and build
 RUN npm install && npm run build
 
 # -------------------------------
