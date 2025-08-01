@@ -29,7 +29,7 @@ RUN pip install --upgrade pip && \
     pip install -r enricher/src/requirements.txt && \
     pip install -r lead_collector/src/requirements.txt && \
     pip install -r vector_service/src/requirements.txt && \
-    pip install -r agent_fullstack/backend/requirements.txt
+    pip install -r agentiq_fullstack/backend/requirements.txt
 
 # -------------------------------
 # Frontend: Next.js Build
