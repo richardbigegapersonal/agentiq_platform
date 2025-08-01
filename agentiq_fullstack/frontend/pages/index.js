@@ -31,22 +31,10 @@ export default function Home() {
       <section className="py-20 px-8 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">What AgentIQ Offers</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
-          <FeatureCard
-            title="Lead Discovery"
-            desc="AI scrapes LinkedIn & web to identify prospects that match your ICP."
-          />
-          <FeatureCard
-            title="Data Enrichment"
-            desc="Auto-completes missing firmographics, contact, and behavioral info."
-          />
-          <FeatureCard
-            title="AI Outreach"
-            desc="Sends personalized cold emails & InMails at scale with human tone."
-          />
-          <FeatureCard
-            title="Feedback Loop"
-            desc="Learns from response outcomes to optimize future messaging."
-          />
+          <FeatureCard title="Lead Discovery" desc="AI scrapes LinkedIn & web to identify prospects that match your ICP." />
+          <FeatureCard title="Data Enrichment" desc="Auto-completes missing firmographics, contact, and behavioral info." />
+          <FeatureCard title="AI Outreach" desc="Sends personalized cold emails & InMails at scale with human tone." />
+          <FeatureCard title="Feedback Loop" desc="Learns from response outcomes to optimize future messaging." />
         </div>
       </section>
 
@@ -110,6 +98,19 @@ export default function Home() {
               </button>
             </Link>
           </SignedIn>
+        </div>
+      </section>
+
+      <section className="bg-gray-50 py-20 px-8">
+        <div className="max-w-6xl mx-auto text-center">
+          <h2 className="text-3xl font-semibold mb-4">Resources & Legal</h2>
+          <p className="text-gray-600 mb-8">Transparency builds trust. Review our policies and learn more about how we work.</p>
+          <div className="flex justify-center gap-12 text-sm text-blue-700">
+            <Link href="/buy-leads">Buy Leads</Link>
+            <Link href="/blog">Blog</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+          </div>
         </div>
       </section>
     </main>
