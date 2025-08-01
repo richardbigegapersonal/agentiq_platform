@@ -17,8 +17,8 @@ RUN pip install -r agent_service/src/requirements.txt
 RUN pip install -r api_gateway/src/requirements.txt
 RUN pip install -r enricher/src/requirements.txt
 RUN pip install -r lead_collector/src/requirements.txt
-RUN pip install -r vector_service/requirements.txt
-RUN pip install -r agent_fullstack/backend/requirements.txt
+RUN pip install -r vector_service/src/requirements.txt
+RUN pip install -r agentiq_fullstack/backend/requirements.txt
 
 
 # Install and build frontend (Next.js)
