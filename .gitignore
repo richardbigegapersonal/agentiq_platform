@@ -1,5 +1,7 @@
-*.pyc
-__pycache__/
+*.zip
+*.mp4
+*.csv
 .env
-.env.*
-*.sqlite3
+__pycache__/
+node_modules/
+.DS_Store

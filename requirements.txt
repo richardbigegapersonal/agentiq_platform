@@ -1,7 +1,46 @@
-# Shared dependencies across services
+# FastAPI & Web Server
 fastapi
 uvicorn
+
+# Web Automation (Lead Collection)
+playwright
 requests
+beautifulsoup4
+
+# Data Handling & Enrichment
+pandas
+httpx
+python-dotenv
+email-validator
+
+# AI Agent & Embeddings
 openai
-psycopg2-binary
+langchain
 pinecone-client
+tiktoken
+chromadb  # optional if local embedding storage is used
+
+# Database & ORM
+psycopg2-binary  # PostgreSQL client
+sqlalchemy
+alembic           # optional for migrations
+databases         # async ORM helper
+
+# Stripe Payments
+stripe
+
+# Auth
+python-jose[cryptography]
+clerk-sdk
+
+# DevOps & Logging
+python-multipart
+loguru
+
+# Vector Math & NLP (Optional)
+scikit-learn
+sentence-transformers
+
+# CORS and Middleware
+aiofiles
+starlette
