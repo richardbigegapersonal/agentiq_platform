@@ -24,3 +24,4 @@ def verify_clerk_token(request: Request):
         return payload
     except Exception as e:
         raise HTTPException(status_code=403, detail=f"Invalid token: {str(e)}")
+
