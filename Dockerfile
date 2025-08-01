@@ -41,6 +41,9 @@ RUN pip install --upgrade pip && \
     pip install -r vector_service/src/requirements.txt && \
     pip install -r agentiq_fullstack/backend/requirements.txt
 
+RUN pip install -r requirements.txt && \
+    playwright install --with-deps
+
 # -------------------------------
 # Frontend: Next.js Build
 # -------------------------------
