@@ -1,31 +1,40 @@
 #!/bin/bash
 
-# Start all Python services
-echo "Starting Agent Service..."
+# Enable job control
+set -m
+
+# Function for colored logs
+log() {
+  echo -e "\033[1;32m$1\033[0m"
+}
+
+# Start Python services
+log "Starting Agent Service..."
 python agent_service/src/main.py &
 
-echo "Starting API Gateway..."
+log "Starting API Gateway..."
 python api_gateway/src/main.py &
 
-echo "Starting Enricher..."
+log "Starting Enricher..."
 python enricher/src/main.py &
 
-echo "Starting Lead Collector..."
-python lead_collecter/src/main.py &
+log "Starting Lead Collector..."
+python lead_collector/src/main.py &
 
-echo "Starting Vector Service..."
+log "Starting Vector Service..."
 python vector_service/main.py &
 
-echo "Starting Backend (Fullstack)..."
+log "Starting Backend (Fullstack)..."
 python agent_fullstack/backend/main.py &
 
-# Start Next.js frontend (built version)
-echo "Starting Next.js Frontend..."
+# Start Next.js frontend
+log "Starting Next.js Frontend..."
 cd agent_fullstack/frontend
 npm run start &
 
-# Return to base directory
-cd ../../..
+# Return to root directory
+cd ../../
 
-# Wait for all services to complete (or until container is stopped)
+# Keep container running
+log "All services started. Waiting for processes..."
 wait
