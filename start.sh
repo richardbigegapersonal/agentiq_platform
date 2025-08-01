@@ -22,14 +22,14 @@ log "Starting Lead Collector..."
 python lead_collector/src/main.py &
 
 log "Starting Vector Service..."
-python vector_service/main.py &
+python vector_service/src/main.py &
 
 log "Starting Backend (Fullstack)..."
-python agent_fullstack/backend/main.py &
+python agentiq_fullstack/backend/main.py &
 
 # Start Next.js frontend
 log "Starting Next.js Frontend..."
-cd agent_fullstack/frontend
+cd agentiq_fullstack/frontend
 npm run start &
 
 # Return to root directory
