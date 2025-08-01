@@ -3,9 +3,11 @@ from fastapi import Request, HTTPException
 from jose import jwt
 import os
 
-CLERK_JWT_ISSUER = os.getenv("CLERK_JWT_ISSUER", "https://api.clerk.dev")
+# Clerk environment variables
+CLERK_JWT_ISSUER = os.getenv("CLERK_JWT_ISSUER", "https://clerk.your-domain.com")
 CLERK_JWT_PUBLIC_KEY = os.getenv("CLERK_JWT_PUBLIC_KEY")
 
+# Token verification utility
 def verify_clerk_token(request: Request):
     token = request.headers.get("Authorization")
     if not token:
