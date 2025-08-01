@@ -3,7 +3,7 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ClerkProvider>
+    <ClerkProvider {...pageProps}>
       <Component {...pageProps} />
     </ClerkProvider>
   );
