@@ -5,6 +5,7 @@ import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/nextjs";
 export default function Home() {
   return (
     <main className="min-h-screen bg-white text-gray-800">
+      {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-800 text-white py-24 px-8 text-center">
         <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4">
           Automate Your Sales Pipeline with AgentIQ
@@ -28,6 +29,7 @@ export default function Home() {
         </SignedIn>
       </section>
 
+      {/* Features */}
       <section className="py-20 px-8 max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-12">What AgentIQ Offers</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -38,6 +40,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Stats */}
       <section className="bg-gray-100 py-20 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-4">Why Sales Teams Choose AgentIQ</h2>
@@ -52,6 +55,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Plans */}
       <section className="bg-white py-20 px-8">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Choose a Plan That Fits</h2>
@@ -64,6 +68,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Testimonials */}
       <section className="bg-indigo-50 py-20 px-8">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-bold mb-4">Success Stories from Real Users</h2>
@@ -75,6 +80,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Calendly Widget */}
       <section className="bg-white py-20 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-semibold mb-4">Book a Personalized Demo</h2>
@@ -82,16 +88,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter Signup */}
       <section className="bg-blue-900 text-white py-16 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-2xl font-semibold mb-4">Get Free Tips & Lead Intelligence</h2>
-          <form className="flex flex-col sm:flex-row justify-center gap-4 mt-4">
-            <input type="email" placeholder="Your email" className="px-4 py-2 rounded-md text-black" required />
+          <form className="flex flex-col sm:flex-row justify-center gap-4 mt-4" method="POST" action="/api/newsletter">
+            <input type="email" name="email" placeholder="Your email" className="px-4 py-2 rounded-md text-black" required />
             <button className="bg-white text-blue-900 px-6 py-2 rounded-md font-semibold hover:bg-gray-200">Subscribe</button>
           </form>
         </div>
       </section>
 
+      {/* Blog & Legal */}
       <section className="bg-gray-50 py-20 px-8">
         <div className="max-w-6xl mx-auto text-center">
           <h2 className="text-3xl font-semibold mb-4">Resources & Legal</h2>
@@ -106,6 +114,18 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Intercom */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.intercomSettings = {
+              app_id: "your_intercom_app_id"
+            };
+            (function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/your_intercom_app_id';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()
+          `,
+        }}
+      />
     </main>
   );
 }
