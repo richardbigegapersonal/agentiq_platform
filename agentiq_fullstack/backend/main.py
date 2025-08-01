@@ -9,6 +9,10 @@ load_dotenv()
 app = FastAPI()
 app.include_router(stripe_router)
 
+from routers import newsletter
+app.include_router(newsletter.router, prefix="/api", tags=["Newsletter"])
+
+
 API_GATEWAY_URL = os.getenv("API_GATEWAY_URL", "http://api-gateway:8000")
 ENRICHER_URL = os.getenv("ENRICHER_URL", "http://enricher:8000")
 VECTOR_URL = os.getenv("VECTOR_SERVICE_URL", "http://vector-service:8000")
