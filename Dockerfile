@@ -12,13 +12,14 @@ WORKDIR /app
 COPY . /app
 
 # Install Python requirements for all services
-RUN pip install --upgrade pip && \
-    pip install -r agent_service/src/requirements.txt && \
-    pip install -r api_gateway/src/requirements.txt && \
-    pip install -r enricher/src/requirements.txt && \
-    pip install -r lead_collecter/src/requirements.txt && \
-    pip install -r vector_service/requirements.txt && \
-    pip install -r agent_fullstack/backend/requirements.txt
+RUN pip install --upgrade pip
+RUN pip install -r agent_service/src/requirements.txt
+RUN pip install -r api_gateway/src/requirements.txt
+RUN pip install -r enricher/src/requirements.txt
+RUN pip install -r lead_collecter/src/requirements.txt
+RUN pip install -r vector_service/requirements.txt
+RUN pip install -r agent_fullstack/backend/requirements.txt
+
 
 # Install and build frontend (Next.js)
 WORKDIR /app/agent_fullstack/frontend
