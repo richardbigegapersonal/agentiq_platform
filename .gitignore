@@ -5,3 +5,4 @@
 __pycache__/
 agentiq_fullstack/backend/node_modules/
 .DS_Store
+node_modules/
