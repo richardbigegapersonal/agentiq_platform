@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: agentiq-app
+    env: docker
+    plan: free # or standard, depending on your needs
+    region: oregon
+
+    # Dockerfile context (adjust if needed)
+    rootDir: .  # This should point to the directory containing your Dockerfile
+
+    envVars:
+      - key: NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY
+        value: your_publishable_key_here
+
+      - key: CLERK_SECRET_KEY
+        value: your_secret_key_here
+
+      - key: CLERK_JWT_ISSUER
+        value: https://api.clerk.dev
+
+      - key: CLERK_JWT_PUBLIC_KEY
+        value: |
+          -----BEGIN PUBLIC KEY-----
+          your-multiline-public-key-goes-here
+          -----END PUBLIC KEY-----
