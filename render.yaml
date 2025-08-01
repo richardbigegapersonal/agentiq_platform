@@ -23,3 +23,5 @@ services:
           -----BEGIN PUBLIC KEY-----
           your-multiline-public-key-goes-here
           -----END PUBLIC KEY-----
+      - key: DB_URL
+        value: postgresql://leadiq_user:H06UdeuOAnCEa9wgZZ0PiMDFWWgEBFfa@dpg-d24m44s9c44c73afkhtg-a/leadiq
