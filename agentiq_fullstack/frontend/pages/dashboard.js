@@ -1,4 +1,5 @@
 // pages/dashboard.js
+"use client";
 import { useEffect, useState } from "react";
 import { SignedIn, SignedOut, useUser, UserButton, useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/router";
