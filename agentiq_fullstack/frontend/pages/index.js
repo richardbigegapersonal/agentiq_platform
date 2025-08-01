@@ -30,16 +30,5 @@ export default function Home() {
 }
 
 
-// pages/sign-in/[[...index]].js
-import { SignIn } from "@clerk/nextjs";
-export default function Page() {
-  return <SignIn path="/sign-in" routing="path" signUpUrl="/sign-up" />;
-}
 
-
-// pages/sign-up/[[...index]].js
-import { SignUp } from "@clerk/nextjs";
-export default function Page() {
-  return <SignUp path="/sign-up" routing="path" signInUrl="/sign-in" />;
-}
 
