@@ -3,5 +3,5 @@
 *.csv
 .env
 __pycache__/
-node_modules/
+agentiq_fullstack/backend/node_modules/
 .DS_Store
