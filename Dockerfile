@@ -1,38 +1,60 @@
+# -------------------------------
+# Base Image
+# -------------------------------
 FROM python:3.11-slim
 
-# Install system packages
+# -------------------------------
+# Install System Dependencies
+# -------------------------------
 RUN apt-get update && \
-    apt-get install -y curl gcc libpq-dev npm nodejs && \
+    apt-get install -y curl gcc libpq-dev nodejs npm && \
     rm -rf /var/lib/apt/lists/*
 
-# Set working directory
+# -------------------------------
+# Set Base Working Directory
+# -------------------------------
 WORKDIR /app
 
-# Copy all code
+# -------------------------------
+# Copy All Code
+# -------------------------------
 COPY . /app
 
-# Install Python requirements for all services
-RUN pip install --upgrade pip
-RUN pip install -r agent_service/src/requirements.txt
-RUN pip install -r api_gateway/src/requirements.txt
-RUN pip install -r enricher/src/requirements.txt
-RUN pip install -r lead_collector/src/requirements.txt
-RUN pip install -r vector_service/src/requirements.txt
-RUN pip install -r agentiq_fullstack/backend/requirements.txt
+# -------------------------------
+# Python Dependency Installation
+# -------------------------------
+RUN pip install --upgrade pip && \
+    pip install -r agent_service/src/requirements.txt && \
+    pip install -r api_gateway/src/requirements.txt && \
+    pip install -r enricher/src/requirements.txt && \
+    pip install -r lead_collector/src/requirements.txt && \
+    pip install -r vector_service/src/requirements.txt && \
+    pip install -r agent_fullstack/backend/requirements.txt
 
-
-# Install and build frontend (Next.js)
+# -------------------------------
+# Frontend: Next.js Build
+# -------------------------------
 WORKDIR /app/agent_fullstack/frontend
+
+# Install Node.js dependencies and build Next.js
 RUN npm install && npm run build
 
-# Return to base workdir
+# -------------------------------
+# Restore Default Workdir
+# -------------------------------
 WORKDIR /app
 
-# Make startup script executable
+# -------------------------------
+# Permissions & Startup
+# -------------------------------
 RUN chmod +x start.sh
 
-# Expose relevant ports
+# -------------------------------
+# Expose Ports
+# -------------------------------
 EXPOSE 8000 8001 8002 8003 8500 3000
 
-# Run startup script
+# -------------------------------
+# Start Everything
+# -------------------------------
 CMD ["./start.sh"]
