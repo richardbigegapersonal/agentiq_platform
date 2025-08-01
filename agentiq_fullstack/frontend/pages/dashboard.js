@@ -1,9 +1,9 @@
 // pages/dashboard.js
 "use client";
+
 import { useEffect, useState } from "react";
 import { SignedIn, SignedOut, useUser, UserButton, useAuth } from "@clerk/nextjs";
 import { useRouter } from "next/router";
-
 import Link from "next/link";
 
 // Disable static site generation
@@ -12,7 +12,6 @@ export const dynamic = "force-dynamic";
 export default function Dashboard() {
   const { user } = useUser();
   const { getToken } = useAuth();
-  const router = useRouter();
   const [leads, setLeads] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -87,10 +86,20 @@ export default function Dashboard() {
       </SignedIn>
 
       <SignedOut>
-        {router.push("/sign-in")}
+        <RedirectToSignIn />
       </SignedOut>
     </main>
   );
+}
+
+function RedirectToSignIn() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/sign-in");
+  }, [router]);
+
+  return null;
 }
 
 function ServiceCard({ title, desc, link = "#" }) {
