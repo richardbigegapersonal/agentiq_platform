@@ -1,4 +1,3 @@
-
 // pages/dashboard.js
 import { SignedIn, SignedOut, useUser, UserButton } from "@clerk/nextjs";
 import { useRouter } from "next/router";
@@ -17,7 +16,7 @@ export default function Dashboard() {
         </nav>
 
         <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          <ServiceCard title="Lead Discovery" desc="AI scrapes LinkedIn to identify high-value prospects." link="/leads" />
+          <ServiceCard title="Lead Discovery" desc="AI scrapes LinkedIn to identify high-value prospects." link="/buy-leads" />
           <ServiceCard title="Data Enrichment" desc="Fills in gaps in contact, company, and behavioral data." />
           <ServiceCard title="AI Outreach" desc="Crafts personalized outbound messages automatically." />
           <ServiceCard title="Feedback Analytics" desc="Learns from conversations to improve lead targeting." />
